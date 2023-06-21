@@ -1,0 +1,266 @@
+@import './animation.scss';
+
+
+
+:root {
+  --main-desktop-icon-size: 3rem;
+  --main-desktop-footer-icon-size: 2.4rem;
+  --main-desktop-padding-size: 1rem 2rem;
+  --main-font-color: white;
+  --main-desktop-h1-font-size: 4rem;
+  --main-desktop-h2-font-size: 5rem;
+
+  --main-mobile-h1-font-size: calc(var(--main-desktop-h1-font-size)*0.7);
+  --main-mobile-h2-font-size: calc(var(--main-desktop-h2-font-size)*0.8);
+
+  --main-btn-hover-color: #e0b20d;
+  --main-btn-active-color: #013043;
+
+  font-size: 12px;
+
+}
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--main-font-color);
+  list-style: none;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+@mixin bodyPadding {
+  padding: var(--main-desktop-padding-size);
+}
+
+@mixin borderTest {
+  border: 1px dashed var(--main-font-color);
+}
+
+html,
+body {
+  // @include flexCenter;
+  width: 100vw;
+  height: 100vh;
+
+}
+
+
+#app {
+  min-height: 100vh;
+  // min-height: calc(100vh - 40px); 不同单位进行计算
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @include bodyPadding;
+}
+
+
+// header {
+//   @include flexCenter;
+//   width: 100%;
+//   justify-content: space-between;
+//   @include borderTest;
+
+// }
+
+// header .menu-logo {
+//   background: url('/icons/menu.svg');
+//   width: var(--main-desktop-icon-size);
+//   height: var(--main-desktop-icon-size);
+//   filter: invert(1);
+//   background-size: var(--main-desktop-icon-size);
+//   background-repeat: no-repeat;
+//   background-position: center;
+
+
+
+// }
+
+// header .logo {
+//   font-size: 2rem;
+
+//   line-height: 1em;
+// }
+
+
+header {
+  @include flexCenter;
+  width: 100%;
+  justify-content: space-between;
+
+  // @include borderTest;
+  .logo {
+    font-size: 2rem;
+
+    line-height: 1em;
+
+    animation-delay: 300ms;
+  }
+
+  .menu-logo {
+    background: url('/icons/menu.svg');
+    width: var(--main-desktop-icon-size);
+    height: var(--main-desktop-icon-size);
+    filter: invert(1);
+    background-size: var(--main-desktop-icon-size);
+    background-repeat: no-repeat;
+    background-position: center;
+
+
+
+  }
+}
+
+
+// section {
+//   @include borderTest;
+// }
+
+footer {
+  // @include borderTest;
+  display: flex;
+  gap: 20px;
+
+  a {
+    cursor: pointer;
+
+    img {
+      width: var(--main-desktop-footer-icon-size);
+      filter: invert(1);
+    }
+    &:nth-child(1) {
+      animation-delay: 300ms;
+    }
+    &:nth-child(2) {
+      animation-delay: 600ms;
+    }
+    &:nth-child(3) {
+      animation-delay: 900ms;
+    }
+  }
+
+  // a
+  // a:nth-child(2) {
+  //   animation-delay: 600ms;
+  // }
+  // a:nth-child(3) {
+  //   animation-delay: 900ms;
+  // }
+
+
+
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.btn {
+
+  font-size: 2rem;
+  border: 2px solid var(--main-font-color);
+  padding: 1rem 2rem;
+  line-height: 1em;
+  border-radius: 3rem;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3),
+    -1px -1px 8px rgba(255, 255, 255, 0.3);
+  transition: all 1s cubic-bezier(0,-0.34, 0.76,-0.24);
+
+  cursor: pointer;
+
+
+}
+
+.btn:hover{
+  background: var(--main-btn-hover-color);
+  letter-spacing: 0.5rem;
+}
+
+.btn:active {
+  background: var(--main-btn-active-color);
+}
+
+
+// a {
+//   cursor: pointer;
+// }
+
+// footer a img {
+//   width: var(--main-desktop-footer-icon-size);
+//   filter: invert(1);
+// }
+
+section {
+  // @include borderTest;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  h1 {
+    font-size: var(--main-desktop-h1-font-size);
+    transition: all 0.5s ease-in-out;
+  }
+
+  h2 {
+    font-size: var(--main-desktop-h2-font-size);
+    transition: all 0.5s ease-in-out;
+  }
+
+  p {
+    font-size: 1.7rem;
+
+    line-height: 2rem;
+    max-width: 70rem;
+    min-width: 30rem;
+    margin: 3rem 0;
+    
+  }
+}
+
+// section h1 {
+//   font-size: var(--main-desktop-h1-font-size);
+//   transition: all 0.5s ease-in-out;
+// }
+
+// section h2 {
+//   font-size: var(--main-desktop-h2-font-size);
+//   transition: all 0.5s ease-in-out;
+// }
+
+@media (max-width: 800px) {
+  :root {
+    font-size: 80px;
+  }
+}
+
+@media (max-width: 1200px) {
+
+  :root {
+    font-size: 10px;
+  }
+
+  section h1 {
+    font-size: var(--main-mobile-h1-font-size);
+  }
+
+  section h2 {
+    font-size: var(--main-mobile-h2-font-size);
+  }
+}
